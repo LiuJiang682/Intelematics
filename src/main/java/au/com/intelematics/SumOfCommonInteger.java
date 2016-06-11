@@ -1,5 +1,6 @@
 package au.com.intelematics;
 
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -23,6 +24,7 @@ public class SumOfCommonInteger {
 	}
 
 	protected void run() {
+
 		//First passing: Populate the list
 		for (int i = 0; i < 1000; i++) {
 			MyInteger myInteger = new MyInteger(random.nextInt(100));

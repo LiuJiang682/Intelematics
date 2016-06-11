@@ -16,6 +16,7 @@ public class MyIntegerTest {
 	@Test
 	public void whenIntegerProvidedThenAllPropertiesShouldInitialiazed() {
 		MyInteger myInteger = givenMyInteger();
+
 		assertNotNull(myInteger);
 		assertTrue(1 == myInteger.getKey());
 		assertTrue(1 == myInteger.getCount());

@@ -5,14 +5,11 @@ import static org.junit.Assert.assertFalse;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
-import java.util.Comparator;
 import java.util.Random;
-import java.util.TreeSet;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Matchers;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
@@ -53,7 +50,6 @@ public class SumOfCommonIntegerTest {
 	public void whenConstructorCalledTheRandomCalled() throws Exception {
 		//Given the user access to PC
 		Random mockRandom = PowerMockito.mock(Random.class);
-//		TreeSet mockTreeSet = PowerMockito.mock(TreeSet.class);
 		
 		PowerMockito.whenNew(
 				Random.class).withNoArguments().thenReturn(mockRandom);
@@ -64,6 +60,7 @@ public class SumOfCommonIntegerTest {
 		PowerMockito.verifyNew(Random.class);
 //		PowerMockito.verifyNew(TreeSet.class).withArguments(Matchers.any(MyIntegerComparator.class));
 	}
+
 	
 	/**
 	 * Given a SumOfCommonInteger object
@@ -83,4 +80,5 @@ public class SumOfCommonIntegerTest {
 		String content = new String(baos.toByteArray(), StandardCharsets.UTF_8);
 		assertFalse(StringUtils.isBlank(content));
 	}
+
 }
