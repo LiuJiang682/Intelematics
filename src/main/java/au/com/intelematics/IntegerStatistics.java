@@ -58,4 +58,14 @@ public class IntegerStatistics {
 		return result;
 	}
 
+	public static Optional<Integer> calculateSumOfMostCommon(Integer[] array) {
+		Optional<Integer> sum = Optional.empty();
+		Optional<Integer[]> integerAndOccurs = findMostCommonInteger(array);
+		
+		if (integerAndOccurs.isPresent()) {
+			Integer[] mostCommonAndOccurs = integerAndOccurs.get();
+			sum = Optional.of(mostCommonAndOccurs[ZERO] * mostCommonAndOccurs[ONE]);
+		}
+		return sum;
+	}
 }
