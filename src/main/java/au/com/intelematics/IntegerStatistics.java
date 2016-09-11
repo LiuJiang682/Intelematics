@@ -39,7 +39,8 @@ public class IntegerStatistics {
 			Map<Integer, Integer> integerCounters = new HashMap<>();
 			Integer theMostCommon = null;
 			Integer numOfOccur = ZERO;
-			for (Integer integer : array) {
+			for (int index = 0; index < array.length; index++) {
+				Integer integer = array[index];
 				Integer count = integerCounters.get(integer);
 				count = (null == count) ? ONE : ++count;
 				integerCounters.put(integer, count);
@@ -94,45 +95,12 @@ public class IntegerStatistics {
 		System.out.println(buf.toString());
 	}
 
-	private static void usage() {
-		System.out
-				.println("Usage: java -jar intelematics.jar [arraySize] [maxValue]");
-	}
-
 	public static void main(String[] args) {
 		random = new Random(System.currentTimeMillis());
-		Integer[] integerArray = null;
-
-		try {
-			if ((null == args) || (ZERO == args.length)) {
-				System.out
-						.println("No parameters passed in. Generating a 100 elements array with 20 as max value");
-				usage();
-				integerArray = generateRandomIntegers(100, 20);
-			} else if (ONE == args.length) {
-				int arraySize = Integer.valueOf(args[ZERO]);
-				System.out
-						.println("ArraySize parameter passed in. Generating a "
-								+ arraySize
-								+ " elements array with 20 as max value");
-				integerArray = generateRandomIntegers(arraySize, 20);
-			} else if (2 == args.length) {
-				int arraySize = Integer.valueOf(args[ZERO]);
-				int maxValue = Integer.valueOf(args[ONE]);
-				System.out
-						.println("ArraySize and maxValue parameters passed in. Generating a "
-								+ arraySize
-								+ " elements array with "
-								+ maxValue + " as max value");
-				integerArray = generateRandomIntegers(arraySize, maxValue);
-			} else {
-				usage();
-				return;
-			}
-		} catch (Exception e) {
-			usage();
-			return;
-		}
+		
+		System.out.println("Generating 6000 element array with max value of 1000");
+		Integer[] integerArray =  generateRandomIntegers(6000, 1000);
+		
 		printArray(integerArray);
 		Optional<Integer> sum = calculateSumOfMostCommon(integerArray);
 		System.out.println("Sum of most common: "
